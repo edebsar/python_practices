@@ -36,7 +36,7 @@ class Repo_push_pull:
             print(f"build unsuccessful with exit code {mvn_result.returncode}!")
 
     def docker_image_build(self):
-        d_image_result = subprocess.run(["docker", "build", "-f" "Dockerfile" "-t" "edebsar/eureka-server2:1.0" "."])
+        d_image_result = subprocess.run(["docker", "build", "-f", "Dockerfile", "-t", "edebsar/eureka-server2:1.0", "."])
         if d_image_result.returncode == 0:
             print("docker image build successful!")
         else:
