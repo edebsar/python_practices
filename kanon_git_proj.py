@@ -75,7 +75,7 @@ class Repo_push_pull:
 
 
 if __name__ == "__main__":
-    Repo_push_pull.run()
+    Repo_push_pull().run()
 
 
 
