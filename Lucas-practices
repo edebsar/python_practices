@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+#1. Get familiar with dictionaries and lists
+'''
+Q2. Read in the following JSON, add the record {'C': 'three'} and write it out as YAML.
+[
+    {
+        "A": "one"
+    },
+    {
+        "B": "two"
+    }
+]
+'''
+'''
+import yaml
+x =[
+    {
+        "A": "one"
+    },
+    {
+        "B": "two"
+    }
+]
+x.append({'C': 'three'})
+print(yaml.dump(x))
+'''
+
+'''
+Q3. Write four functions: 
+    i.   a hello world function that accepts a name and prints "Hello name!" (sub the provided name)
+'''
+'''
+def hello_world(name):
+    print("Hello {}!".format(name))
+
+if __name__ == '__main__':
+    name = input("Please enter ur name: ")
+    hello_world(name)
+'''
+'''
+Q3.
+    ii.  a goodbye world function that accepts a name and prints "Goodbye name!" (sub the provided name)
+'''
+
+'''
+def goodbye_world(name):
+    print("Goodbye {}!".format(name))
+
+if __name__ == '__main__':
+    name = input("Please enter ur name: ")
+    goodbye_world(name)
+'''
+'''
+Q3.
+    iii. a hola mundo function that accepts a nombre (name) and prints "Hola name!" (sub the provided name)
+'''
+
+'''
+def hola_mundo(nombre):
+    print("Hola {}!".format(nombre))
+
+if __name__ == '__main__':
+    nombre = input("introduzca su nombre: ")
+    hola_mundo(nombre)
+'''
+'''
+Q3.
+    iv. an adios mundo function that accepts a nombre (name) and prints "Adios name!"  (sub the provided name)
+'''
+
+'''
+def adios_mundo(nombre):
+    print("Adios {}!".format(nombre))
+
+if __name__ == '__main__':
+    nombre = input("introduzca su nombre: ")
+    adios_mundo(nombre)
+'''
+'''
+Q4. Use the argparse library and create a script that accepts a --NAME as an argument and runs that name through the above functions
+'''
+'''
+import argparse 
+def adios_mundo(nombre):
+    print("Adios {}!".format(nombre))
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Adios mundo!')
+    parser.add_argument('--name', help='introduzca su nombre', required=True)
+    nombre = parser.parse_args()
+    adios_mundo(nombre.name)
+'''
+'''
+Q5. Modify your script to use objects:
+    i. Create a Greeting object with two methods. The object must be initialized with a "name" argument and that argument must be stored as an instance attribute. The methods should print "Hello Name!" and "Goodbye Name!". The greetings should be stored as instance attributes.
+'''
+'''
+class Greeting:
+    def __init__(self,name):
+        self.name = name
+
+    def hello(self):
+        self.helloWorld = "Hello {}".format(self.name)
+        return self.helloWorld
+
+    def goodbye(self):
+        self.farewell = "GoodBye {}".format(self.name)
+        return self.farewell
+    
+    def run(self):
+        print(self.hello())
+        print(self.goodbye())
+
+
+if __name__ == '__main__':
+    name = input("Please enter your name: ")
+    greeting = Greeting(name)
+    greeting.run()
+'''
+'''
+Q5.
+    ii. Create a Saludar object. The object must inherit from the Greeting object, must be initialized with a " name " argument and that argument must be stored as an instance attribute.  The methods should print "Hola Name!" and "Adios Name!", thus the greeting attributes of the parent object should be updated accordingly.
+'''
+'''
+class Greeting:
+    def __init__(self,name):
+        self.name = name
+
+    def hello(self):
+        self.helloWorld = "Hello {}".format(self.name)
+        return self.helloWorld
+
+    def goodbye(self):
+        self.farewell = "GoodBye {}".format(self.name)
+        return self.farewell
+    
+    def run(self):
+        print(self.hello())
+        print(self.goodbye())
+
+
+class Saludar(Greeting):
+    def __init__(self,name):
+        self.name = name
+    
+    def hello(self):
+        self.helloWorld = "Hola {}".format(self.name)
+        return self.helloWorld
+
+    def goodbye(self):
+        self.farewell = "Adios {}".format(self.name)
+        return self.farewell
+
+if __name__ == '__main__':
+    name = input("Please enter your name: ")
+    saludar = Saludar(name)
+    saludar.run()
+'''
