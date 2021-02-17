@@ -156,3 +156,31 @@ if __name__ == '__main__':
     saludar = Saludar(name)
     saludar.run()
 '''
+
+class Greeting:
+    def __init__(self,name):
+        self.name = name
+        self.helloWorld = "Hello {}".format(self.name)
+        self.farewell = "GoodBye {}".format(self.name)
+
+    def hello(self):
+        return self.helloWorld
+
+    def goodbye(self):
+        return self.farewell
+    
+    def run(self):
+        print(self.hello())
+        print(self.goodbye())
+
+
+class Saludar(Greeting):
+    def __init__(self,name):
+        super().__init__(name)
+        self.helloWorld = "Hola {}".format(self.name)
+        self.farewell = "Adios {}".format(self.name)
+
+if __name__ == '__main__':
+    name = input("Please enter your name: ")
+    saludar = Saludar(name)
+    saludar.run()
